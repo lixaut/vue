@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="../js/vue.js"></script>
+
+</head>
+<body>
+
+    <!-- 
+        Vue 中的事件修饰符：
+            1. prevent：阻止默认事件（常用）
+            2. stop：阻止事件冒泡（常用）
+            3. once：事件只触发一次（常用）
+            4. capture：使用事件的捕获模式
+            5. self：只有 event.target 是当前操作的元素时才触发
+            6. passive：事件的默认行为立即执行，无需等待事件回调执行完毕
+     -->
+
+    <div id="app">
+        <h1>欢迎{{name}}来</h1>
+        <a href="http://www.baidu.com" @click.prevent="showInfo">点我提示信息</a>
+    </div>
+    
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                name: 'jack'
+            },
+            methods: {
+                showInfo(){
+                    alert('你好')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

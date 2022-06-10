@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初识Vue</title>
+
+    <!-- 引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+</head>
+<body>
+
+    <!-- 
+        初识 Vue:
+            1. 想让 Vue 工作，就必须创建一个 Vue 实例，且要传入一个配置对象。
+            2. root 容器里的代码依然符合 html 规范，只不过混人了一些特殊的 Vue 语法。
+            3. root 容器里的代码被称为【Vue模版】。
+     -->
+
+    <!-- 准备一个容器 -->
+    <div id="app">
+        {{ 10+20 }}
+        {{ myname }}
+    </div>
+
+    <script>
+        // 阻止 Vue 在启动时生成生产提示
+        Vue.config.productionTip = false
+
+        // 创建 Vue 实例
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                myname: 'li'
+            }
+        })
+    </script>
+</body>
+</html>

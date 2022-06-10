@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1. Vue 中的数据代理
+            通过 vm 对象来代理 data 对象中属性的操作（读/写）
+        2. Vue 中数据代理的好处
+            更加方便操作 data 中的数据
+        3. 基本原理
+            + 通过 Object.defineProperty() 把 data 对象中所有属性添加到 vm 上
+            + 为每一个添加到 vm 上的属性，都指定一个 getter / setter
+            + 在 getter / setter 内部去操作（读/写）data 中对应的属性
+     -->
+    <script>
+        const number = 2001
+        const obj = {
+            name: 'jack',
+            age: 18,
+            gender: 'male'
+        }
+
+        Object.defineProperty(obj, 'class', {
+            value: 2022,
+            enumerable: true,  // 控制属性是否可以枚举，默认值是false
+            writable: true,  // 控制属性是否可以被修改，默认值是false
+            configurable: true,  // 控制属性是否可以被删除，默认值是false
+
+            // 当有人读取 obj 的 class 属性时，get 函数（getter）就会被调用，且返回值为 age
+            get() {
+                return number
+            },
+
+            // 当有人修改 obj 的 class 属性时，set 函数（setter）就会被调用，且会收到修改的具体的值
+            set(value) {
+                number = value
+            }
+        })
+
+        // const a = Object.keys(obj)
+        // console.log(a)
+        console.log(obj)
+    </script>
+</body>
+</html>
