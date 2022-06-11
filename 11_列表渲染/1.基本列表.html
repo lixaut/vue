@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 遍历数组 -->
+        <h1>人员列表</h1>
+        <ul>
+            <li v-for="(p, index) in persons" :key="index">
+                {{p.name}}-{{p.age}}
+            </li>
+        </ul>
+
+        <!-- 遍历对象 -->
+        <h1>汽车信息</h1>
+        <ul>
+            <li v-for="(value, key) in car" :key="key">
+                {{key}}-{{value}}
+            </li>
+        </ul>
+
+        <!-- 遍历字符串 -->
+        <h1>字符</h1>
+        <ul>
+            <li v-for="(char, index) in str" :key="index">
+                {{char}}-{{index}}
+            </li>
+        </ul>
+
+        <!-- 测试遍历指定次数 -->
+        <h1>次数</h1>
+        <ul>
+            <li v-for="(number, index) in 5" :key="index">
+                {{number}}-{{index}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                persons: [
+                    {id: 1, name: '张三', age: 18},
+                    {id: 2, name: '李四', age: 19},
+                    {id: 3, name: '王五', age: 17}
+                ],
+                car: {
+                    name: 'BYD',
+                    price: '20万',
+                    color: '黑色'
+                },
+                str: 'hello'
+            }
+        })
+    </script>
+</body>
+</html>
